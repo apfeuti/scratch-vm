@@ -1112,7 +1112,7 @@ class Boost {
                 const partialDistance = data[7];
                 let totalDistance = distance;
                 if (partialDistance > 0) {
-                    totalDistance = totalDistance + 1 / partialDistance;
+                    totalDistance = totalDistance + (1 / partialDistance);
                 }
                 this._sensors.distance = totalDistance;
                 break;
@@ -1510,7 +1510,7 @@ class Scratch3BoostBlocks {
                         default: 'distance',
                         description: 'the distance returned by the vision sensor'
                     }),
-                    blockType: BlockType.REPORTER,
+                    blockType: BlockType.REPORTER
                 },
                 {
                     opcode: 'whenTilted',
@@ -1795,7 +1795,7 @@ class Scratch3BoostBlocks {
                     {
                         text: BoostOperator.EQUAL,
                         value: BoostOperator.EQUAL
-                    },
+                    }
                 ]
             }
         };
@@ -2174,9 +2174,6 @@ class Scratch3BoostBlocks {
             return this._peripheral.distance > threshold;
         } else if (args.OPERATOR === BoostOperator.EQUAL) {
             return this._peripheral.distance === threshold;
-        } else {
-            // should never reach here
-            return false;
         }
     }
 
